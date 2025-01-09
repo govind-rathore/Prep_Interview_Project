@@ -9,7 +9,11 @@
 <body>
 
 
-	<h1>WeloCome Dear Admin You are successfully Logged in!!</h1>
+	<h1>WelCome Dear Admin You are successfully Logged in!!</h1>
+
+	<h3>
+		<a href="AddTopic.jsp">Add Topic</a>
+	</h3>
 
 </body>
 </html>
