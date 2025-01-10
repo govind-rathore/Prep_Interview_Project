@@ -4,6 +4,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.prepinterview.entity.AptitudeQuestion;
 import com.prepinterview.entity.AptitudeTopic;
 import com.prepinterview.entity.User;
 
@@ -16,6 +17,7 @@ public class HibernateUtil {
 			configuration.configure();
 			configuration.addAnnotatedClass(User.class);
 			configuration.addAnnotatedClass(AptitudeTopic.class);
+			configuration.addAnnotatedClass(AptitudeQuestion.class);
 
 			sessionFactory = configuration.buildSessionFactory();
 		} catch (HibernateException e) {

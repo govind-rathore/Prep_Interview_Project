@@ -21,4 +21,12 @@ public class FetchTopicsDao {
 
 	}
 
+	public AptitudeTopic fetchTopicById(int topicId) {
+		Query<AptitudeTopic> query = session.createQuery("From AptitudeTopic a where a.topicId =: topicId",
+				AptitudeTopic.class);
+		query.setParameter("topicId", topicId);
+		return query.uniqueResult();
+
+	}
+
 }

@@ -1,7 +1,6 @@
 <%@page import="com.prepinterview.entity.AptitudeTopic"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,20 +9,20 @@
 </head>
 <body>
 
-	<h1>All Aptitude Topics</h1>
+    <h1>All Aptitude Topics</h1>
 
-	<%
-	List<AptitudeTopic> topics = (List<AptitudeTopic>) request.getAttribute("topics");
+    <%
+    List<AptitudeTopic> topics = (List<AptitudeTopic>) request.getAttribute("topics");
 
-	for (AptitudeTopic topic : topics) {
-	%>
-	<h3>
-		<a href="#"><%=topic.getTopicName()%></a>
-	</h3>
+    for (AptitudeTopic topic : topics) {
+    %>
+    <h3>
+        <a href="topicwise-question?topicId=<%=topic.getTopicId()%>"><%=topic.getTopicName()%></a>
+    </h3>
 
-	<%
-	}
-	%>
+    <%
+    }
+    %>
 
 </body>
 </html>

@@ -20,4 +20,9 @@ public class FetchTopicsService {
 
 	}
 
+	public AptitudeTopic getTopicById(int topicId) {
+		return fetchDao.fetchTopicById(topicId);
+
+	}
+
 }
