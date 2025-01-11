@@ -1,30 +1,104 @@
 <%@page import="com.prepinterview.entity.AptitudeQuestion"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
+<%
+// Get the list of questions from the request attribute
+List<AptitudeQuestion> questions = (List<AptitudeQuestion>) request.getAttribute("qlist");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Topic Questions</title>
+<script>
+        // Function to check if the selected option is correct
+        function checkAnswer(questionId, correctAnswer, selectedOption) {
+            const resultElement = document.getElementById("result-" + questionId);
+            if (correctAnswer === selectedOption) {
+                resultElement.innerHTML = "<span style='color: green;'>Correct!</span>";
+            } else {
+                resultElement.innerHTML = "<span style='color: red;'>Wrong!</span>";
+            }
+        }
+
+        // Show the explanation when the user clicks 'Show Explanation'
+        function showExplanation(questionId, explanation) {
+            const explanationElement = document.getElementById("explanation-" + questionId);
+            explanationElement.innerHTML = explanation;
+            explanationElement.style.display = "block";
+        }
+    </script>
 </head>
 <body>
+    <h1>Questions for Selected Topic</h1>
+    <div>
+        <%
+        if (questions != null && !questions.isEmpty()) {
+        %>
+        <%
+        for (AptitudeQuestion question : questions) {
+        %>
+        <div style="margin-bottom: 20px;">
+            <h3>
+                Question:
+                <%=question.getQuestion()%></h3>
 
-    <%
-    List<AptitudeQuestion> qlist = (List<AptitudeQuestion>) request.getAttribute("qlist");
+            <!-- Display the options -->
+            <div>
+                <input type="radio" name="question-<%=question.getQuestionId()%>" value="A"
+                    onclick="checkAnswer(<%=question.getQuestionId()%>, 
+                             '<%=String.valueOf(question.getCorrectOption()).replace("'", "\\'")%>', 
+                             'A')">
+                <strong>A:</strong>
+                <%=question.getOptionA()%>
+            </div>
+            <div>
+                <input type="radio" name="question-<%=question.getQuestionId()%>" value="B"
+                    onclick="checkAnswer(<%=question.getQuestionId()%>, 
+                             '<%=String.valueOf(question.getCorrectOption()).replace("'", "\\'")%>', 
+                             'B')">
+                <strong>B:</strong>
+                <%=question.getOptionB()%>
+            </div>
+            <div>
+                <input type="radio" name="question-<%=question.getQuestionId()%>" value="C"
+                    onclick="checkAnswer(<%=question.getQuestionId()%>, 
+                             '<%=String.valueOf(question.getCorrectOption()).replace("'", "\\'")%>', 
+                             'C')">
+                <strong>C:</strong>
+                <%=question.getOptionC()%>
+            </div>
+            <div>
+                <input type="radio" name="question-<%=question.getQuestionId()%>" value="D"
+                    onclick="checkAnswer(<%=question.getQuestionId()%>, 
+                             '<%=String.valueOf(question.getCorrectOption()).replace("'", "\\'")%>', 
+                             'D')">
+                <strong>D:</strong>
+                <%=question.getOptionD()%>
+            </div>
 
-    for (AptitudeQuestion qObject : qlist) {
-    %>
+            <!-- Feedback area -->
+            <div id="result-<%=question.getQuestionId()%>" style="margin-top: 10px;"></div>
 
-    <%=qObject.getQuestion()%><br>
-    <%=qObject.getOptionA()%><br>
-    <%=qObject.getOptionB()%><br>
-    <%=qObject.getOptionC()%><br>
-    <%=qObject.getOptionD()%>
-
-    <%
-    }
-    %>
-
-
+            <!-- Show Explanation button -->
+            <button
+                onclick="showExplanation(<%=question.getQuestionId()%>, '<%=question.getSolution().replace("'", "\\'")%>')">Show
+                Explanation</button>
+            <div id="explanation-<%=question.getQuestionId()%>" style="display: none; margin-top: 10px; color: blue;"></div>
+        </div>
+        <%
+        }
+        %>
+        <%
+        } else {
+        %>
+        <p>No questions available for this topic.</p>
+        <%
+        }
+        %>
+    </div>
 </body>
 </html>

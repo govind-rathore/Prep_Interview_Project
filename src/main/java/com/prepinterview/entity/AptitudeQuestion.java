@@ -61,10 +61,6 @@ public class AptitudeQuestion {
 		return optionD;
 	}
 
-	public char getCorrectOption() {
-		return correctOption;
-	}
-
 	public String getSolution() {
 		return solution;
 	}
@@ -97,16 +93,20 @@ public class AptitudeQuestion {
 		this.optionD = optionD;
 	}
 
-	public void setCorrectOption(char correctOption) {
-		this.correctOption = correctOption;
-	}
-
 	public void setSolution(String solution) {
 		this.solution = solution;
 	}
 
 	public void setTopic(AptitudeTopic topic) {
 		this.topic = topic;
+	}
+
+	public char getCorrectOption() {
+		return correctOption;
+	}
+
+	public void setCorrectOption(char correctOption) {
+		this.correctOption = correctOption;
 	}
 
 }

@@ -34,9 +34,10 @@ public class TopicwiseQuestionServlet extends HttpServlet {
 		} else {
 			req.setAttribute("qlist", qlist);
 			req.getRequestDispatcher("TopicWiseQuestion.jsp").forward(req, resp);
-			
 
 		}
+
+		session.close();
 	}
 
 }
