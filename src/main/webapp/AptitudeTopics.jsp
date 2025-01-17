@@ -17,8 +17,12 @@
     for (AptitudeTopic topic : topics) {
     %>
     <h3>
-        <a href="topicwise-question?topicId=<%=topic.getTopicId()%>"><%=topic.getTopicName()%></a>
+        <%=topic.getTopicName()%>
     </h3>
+    <button onclick="window.location.href='topicwise-formula?topicId=<%=topic.getTopicId()%>'">Formulas</button>
+    <button onclick="window.location.href='topicwise-question?topicId=<%=topic.getTopicId()%>'">Prepare</button>
+    <button onclick="window.location.href='Login.jsp?topicId=<%=topic.getTopicId()%>'">Test</button>
+
 
     <%
     }

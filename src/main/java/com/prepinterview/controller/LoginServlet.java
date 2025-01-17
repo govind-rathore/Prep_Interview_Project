@@ -23,6 +23,9 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
+		String topicIdString = req.getParameter("topicId");
+
+		System.out.println(topicIdString);
 
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		UserService userService = new UserService(session);
@@ -37,7 +40,12 @@ public class LoginServlet extends HttpServlet {
 				resp.sendRedirect("AdminDashboard.jsp");
 
 			} else {
-				resp.sendRedirect("UserDashboard.jsp");
+				if (topicIdString != null) {
+					resp.sendRedirect("TestPage.jsp");
+				} else {
+					resp.sendRedirect("UserDashboard.jsp");
+				}
+
 			}
 
 		} else {

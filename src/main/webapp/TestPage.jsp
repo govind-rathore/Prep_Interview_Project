@@ -7,13 +7,7 @@
 </head>
 <body>
 
-
-    <h1>Welcome to PrepInterview</h1>
-
-    <a href="Register.jsp">Register</a>
-    <a href="Login.jsp">LogIn</a>
-
-    <a href="all-topics">Prepare Now</a>
+    <h1>Welcome to TestPAGE</h1>
 
 </body>
 </html>

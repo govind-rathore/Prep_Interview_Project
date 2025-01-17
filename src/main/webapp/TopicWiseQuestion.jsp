@@ -27,8 +27,15 @@ List<AptitudeQuestion> questions = (List<AptitudeQuestion>) request.getAttribute
         // Show the explanation when the user clicks 'Show Explanation'
         function showExplanation(questionId, explanation) {
             const explanationElement = document.getElementById("explanation-" + questionId);
-            explanationElement.innerHTML = explanation;
-            explanationElement.style.display = "block";
+            explanationElement.innerText = explanation;
+            if( explanationElement.style.display==='none'){
+            	 explanationElement.style.display = "block";
+            }else{
+            	 explanationElement.style.display = "none";
+            }
+            
+           
+            
         }
     </script>
 </head>
@@ -84,11 +91,13 @@ List<AptitudeQuestion> questions = (List<AptitudeQuestion>) request.getAttribute
             <div id="result-<%=question.getQuestionId()%>" style="margin-top: 10px;"></div>
 
             <!-- Show Explanation button -->
-            <button
-                onclick="showExplanation(<%=question.getQuestionId()%>, '<%=question.getSolution().replace("'", "\\'")%>')">Show
+            <button id="<%=question.getQuestionId()%> %>"
+                onclick="showExplanation(<%=question.getQuestionId()%>, `<%=question.getSolution()%>`)">Show
                 Explanation</button>
             <div id="explanation-<%=question.getQuestionId()%>" style="display: none; margin-top: 10px; color: blue;"></div>
         </div>
+
+
         <%
         }
         %>
