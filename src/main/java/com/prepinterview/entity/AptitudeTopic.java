@@ -16,13 +16,13 @@ public class AptitudeTopic {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int topicId;
 
-	public AptitudeFormulas getFormula() {
-		return formula;
-	}
-
-	public void setFormula(AptitudeFormulas formula) {
-		this.formula = formula;
-	}
+//	public AptitudeFormulas getFormula() {
+//		return formula;
+//	}
+//
+//	public void setFormula(AptitudeFormulas formula) {
+//		this.formula = formula;
+//	}
 
 	@Column(nullable = false)
 	private String topicName;
@@ -30,8 +30,8 @@ public class AptitudeTopic {
 	@OneToMany(mappedBy = "topic")
 	private List<AptitudeQuestion> questions;
 
-	@OneToOne
-	private AptitudeFormulas formula;
+//	@OneToOne
+//	private AptitudeFormulas formula;
 
 	public List<AptitudeQuestion> getQuestions() {
 		return questions;

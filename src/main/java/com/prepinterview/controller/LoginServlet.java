@@ -23,35 +23,32 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
-		String topicIdString = req.getParameter("topicId");
+		String topicIdString = req.getParameter("topicId"); // Fetch topicId if available
 
-		System.out.println(topicIdString);
+		System.out.println("Topic ID: " + topicIdString);
 
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		UserService userService = new UserService(session);
 
-		User user = userService.loginUser(email, password);// Authenticate User
+		// Authenticate the user
+		User user = userService.loginUser(email, password);
 
 		if (user != null) {
 			req.setAttribute("user", user);
 
+			// Redirect based on user role and presence of topicId
 			if (user.getRole().equals("ADMIN")) {
-
 				resp.sendRedirect("AdminDashboard.jsp");
-
 			} else {
-				if (topicIdString != null) {
-					resp.sendRedirect("TestPage.jsp");
+				if (topicIdString != null && !topicIdString.trim().isEmpty()) {
+					resp.sendRedirect("TestPage.jsp?topicId=" + topicIdString + "&userId=" + user.getUserId());
 				} else {
 					resp.sendRedirect("UserDashboard.jsp");
 				}
 
 			}
-
 		} else {
 			resp.getWriter().write("Invalid username or password!");
 		}
-
 	}
-
 }

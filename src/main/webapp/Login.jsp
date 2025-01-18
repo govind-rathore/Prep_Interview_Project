@@ -9,12 +9,10 @@
 </head>
 <body>
 
-    <%
-    String topicId = request.getParameter("topicId");
-    %>
 
 
 
+    <!-- 
     <div class="flex flex-wrap w-full">
         <div class="flex flex-col w-full md:w-1/2">
             <div class="flex justify-center pt-12 md:justify-start md:pl-12 md:-mb-24">
@@ -58,6 +56,8 @@
                         class="w-full px-4 py-2 text-base font-semibold text-center text-white transition duration-200 ease-in bg-black shadow-md hover:text-black hover:bg-white focus:outline-none focus:ring-2">
                         <span class="w-full"> Submit </span>
                     </button>
+                       <!-- Hidden field for topicId -->
+    <%--    <input type="hidden" name="topicId" value="<%=request.getParameter("topicId") != null ? request.getParameter("topicId") : "" %>">
                 </form>
                 <div class="pt-12 pb-12 text-center">
                     <p>
@@ -70,6 +70,7 @@
             <img class="hidden object-cover w-full h-screen md:block" src="/images/object/9.jpg" />
         </div>
     </div>
+ --%>
 
 
 
@@ -77,19 +78,22 @@
 
 
 
-    <!-- 	<h1>Login Here</h1>
 
-<form action="login" method="post">
-   
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br><br>
+    <h1>Login Here</h1>
 
-     <input type="submit" value="LogIn">
-</form> -->
+    <form action="login" method="post">
+
+
+        <label for="email">Email:</label> <input type="email" id="email" name="email" required><br> <br>
+        <label for="password">Password:</label> <input type="password" id="password" name="password" required><br>
+        <br> <input type="submit" value="LogIn"> <br>
+
+        <!-- Hidden field for topicId -->
+        <input type="hidden" name="topicId"
+            value="<%=request.getParameter("topicId") != null ? request.getParameter("topicId") : ""%>">
+    </form>
 
 
 

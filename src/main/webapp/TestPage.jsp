@@ -7,7 +7,13 @@
 </head>
 <body>
 
-    <h1>Welcome to TestPAGE</h1>
+
+    <h1>Welcome to Test Page</h1>
+
+
+    <%=request.getParameter("topicId")%>
+    <%=request.getParameter("userId")%>
+
 
 </body>
 </html>
