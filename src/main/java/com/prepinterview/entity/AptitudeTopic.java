@@ -28,21 +28,32 @@ public class AptitudeTopic {
 	private String topicName;
 
 	@OneToMany(mappedBy = "topic")
-	private List<AptitudeQuestion> questions;
+	private List<AptitudeQuestion> aptitudeQuestions;
+
+	@OneToMany(mappedBy = "topic")
+	private List<TestQuestion> testQuestions;
 
 //	@OneToOne
 //	private AptitudeFormulas formula;
 
-	public List<AptitudeQuestion> getQuestions() {
-		return questions;
-	}
-
-	public void setQuestions(List<AptitudeQuestion> questions) {
-		this.questions = questions;
-	}
-
 	public int getTopicId() {
 		return topicId;
+	}
+
+	public List<AptitudeQuestion> getAptitudeQuestions() {
+		return aptitudeQuestions;
+	}
+
+	public List<TestQuestion> getTestQuestions() {
+		return testQuestions;
+	}
+
+	public void setAptitudeQuestions(List<AptitudeQuestion> aptitudeQuestions) {
+		this.aptitudeQuestions = aptitudeQuestions;
+	}
+
+	public void setTestQuestions(List<TestQuestion> testQuestions) {
+		this.testQuestions = testQuestions;
 	}
 
 	public String getTopicName() {

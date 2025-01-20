@@ -24,12 +24,19 @@ public class FetchTopicsServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		String targetPage = req.getParameter("targetPage");
+
+		// Default to AptitudeTopics.jsp if no targetPage is provided
+		if (targetPage == null || targetPage.isEmpty()) {
+			targetPage = "AptitudeTopics.jsp";
+		}
+
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		FetchTopicsService topicsService = new FetchTopicsService(session);
 		List<AptitudeTopic> topics = topicsService.getTopics();
 
 		req.setAttribute("topics", topics);
-		RequestDispatcher rd = req.getRequestDispatcher("AptitudeTopics.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher(targetPage);
 		rd.forward(req, resp);
 
 		session.close();

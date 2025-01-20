@@ -27,7 +27,7 @@ public class TopicwiseQuestionServlet extends HttpServlet {
 		FetchTopicsService topicsService = new FetchTopicsService(session);
 		AptitudeTopic topic = topicsService.getTopicById(topicId);
 
-		List<AptitudeQuestion> qlist = topic.getQuestions();
+		List<AptitudeQuestion> qlist = topic.getAptitudeQuestions();
 
 		if (qlist == null) {
 			resp.getWriter().print("Sorry no data is fetched");

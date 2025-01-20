@@ -91,8 +91,7 @@
         <br> <input type="submit" value="LogIn"> <br>
 
         <!-- Hidden field for topicId -->
-        <input type="hidden" name="topicId"
-            value="<%=request.getParameter("topicId") != null ? request.getParameter("topicId") : ""%>">
+        <input type="hidden" name="topicId" value="<%=request.getParameter("topicId") != null ? request.getParameter("topicId") : ""%>">
     </form>
 
 

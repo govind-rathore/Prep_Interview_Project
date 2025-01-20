@@ -19,6 +19,9 @@
     <h3>
         <a href="AddFormula.jsp">Add Formulas</a>
     </h3>
+    <h3>
+        <a href="all-topics?targetPage=AddTest.jsp">Add Test Questions</a>
+    </h3>
 
 </body>
 </html>

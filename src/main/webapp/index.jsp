@@ -12,7 +12,6 @@
 
     <a href="Register.jsp">Register</a>
     <a href="Login.jsp">LogIn</a>
-
     <a href="all-topics">Prepare Now</a>
 
 </body>
