@@ -6,6 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.prepinterview.entity.AptitudeQuestion;
 import com.prepinterview.entity.AptitudeTopic;
+import com.prepinterview.entity.SaveResult;
 import com.prepinterview.entity.TestQuestion;
 import com.prepinterview.entity.User;
 
@@ -21,6 +22,7 @@ public class HibernateUtil {
 			configuration.addAnnotatedClass(AptitudeQuestion.class);
 //			configuration.addAnnotatedClass(AptitudeFormulas.class);
 			configuration.addAnnotatedClass(TestQuestion.class);
+			configuration.addAnnotatedClass(SaveResult.class);
 
 			sessionFactory = configuration.buildSessionFactory();
 		} catch (HibernateException e) {

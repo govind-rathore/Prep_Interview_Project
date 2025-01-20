@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 					resp.sendRedirect("TestInformationPage.jsp?topicId=" + topicIdString + "&userId=" + user.getUserId()
 							+ "&topicName=" + topicName);
 				} else {
-					resp.sendRedirect("UserDashboard.jsp");
+					resp.sendRedirect("getUserDetail?userId=" + user.getUserId());
 				}
 
 			}

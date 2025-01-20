@@ -33,6 +33,9 @@ public class AptitudeTopic {
 	@OneToMany(mappedBy = "topic")
 	private List<TestQuestion> testQuestions;
 
+	@OneToMany(mappedBy = "topic")
+	private List<SaveResult> results;
+
 //	@OneToOne
 //	private AptitudeFormulas formula;
 
@@ -42,6 +45,14 @@ public class AptitudeTopic {
 
 	public List<AptitudeQuestion> getAptitudeQuestions() {
 		return aptitudeQuestions;
+	}
+
+	public List<SaveResult> getResults() {
+		return results;
+	}
+
+	public void setResults(List<SaveResult> results) {
+		this.results = results;
 	}
 
 	public List<TestQuestion> getTestQuestions() {

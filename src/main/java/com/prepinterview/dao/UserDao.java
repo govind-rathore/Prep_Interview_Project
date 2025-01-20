@@ -32,4 +32,12 @@ public class UserDao {
 
 	}
 
+	public User getUserById(int userId) {
+		Transaction transaction = session.beginTransaction();
+		User user = session.get(User.class, userId);
+		transaction.commit();
+		return user;
+
+	}
+
 }
