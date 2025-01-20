@@ -3,6 +3,7 @@ package com.prepinterview.service;
 import org.hibernate.Session;
 
 import com.prepinterview.dao.TestQuestionDao;
+import com.prepinterview.entity.AptitudeTopic;
 import com.prepinterview.entity.TestQuestion;
 
 public class TestQuestionService {
@@ -16,6 +17,11 @@ public class TestQuestionService {
 
 	public void addQuestion(TestQuestion question) {
 		questionDao.saveQuestion(question);
+
+	}
+
+	public AptitudeTopic getTopicById(int topicId) {
+		return questionDao.fetchTopicById(topicId);
 
 	}
 

@@ -84,14 +84,18 @@
     <h1>Login Here</h1>
 
     <form action="login" method="post">
-
+        
 
         <label for="email">Email:</label> <input type="email" id="email" name="email" required><br> <br>
         <label for="password">Password:</label> <input type="password" id="password" name="password" required><br>
         <br> <input type="submit" value="LogIn"> <br>
 
         <!-- Hidden field for topicId -->
-        <input type="hidden" name="topicId" value="<%=request.getParameter("topicId") != null ? request.getParameter("topicId") : ""%>">
+        <input type="hidden" name="topicId"
+            value="<%=request.getParameter("topicId") != null ? request.getParameter("topicId") : ""%>"> <input
+            type="hidden" name="topicName"
+            value="<%=request.getParameter("topicName")%>">
+
     </form>
 
 

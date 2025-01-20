@@ -24,6 +24,7 @@ public class LoginServlet extends HttpServlet {
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 		String topicIdString = req.getParameter("topicId"); // Fetch topicId if available
+		String topicName = req.getParameter("topicName");
 
 		System.out.println("Topic ID: " + topicIdString);
 
@@ -41,7 +42,8 @@ public class LoginServlet extends HttpServlet {
 				resp.sendRedirect("AdminDashboard.jsp");
 			} else {
 				if (topicIdString != null && !topicIdString.trim().isEmpty()) {
-					resp.sendRedirect("TestPage.jsp?topicId=" + topicIdString + "&userId=" + user.getUserId());
+					resp.sendRedirect("TestInformationPage.jsp?topicId=" + topicIdString + "&userId=" + user.getUserId()
+							+ "&topicName=" + topicName);
 				} else {
 					resp.sendRedirect("UserDashboard.jsp");
 				}

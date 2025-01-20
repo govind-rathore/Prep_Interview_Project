@@ -21,7 +21,7 @@
     </h3>
     <button onclick="window.location.href='topicwise-formula?topicId=<%=topic.getTopicId()%>'">Formulas</button>
     <button onclick="window.location.href='topicwise-question?topicId=<%=topic.getTopicId()%>'">Prepare</button>
-    <button onclick="window.location.href='Login.jsp?topicId=<%=topic.getTopicId()%>'">Test</button>
+    <button onclick="window.location.href='Login.jsp?topicId=<%=topic.getTopicId()%>&topicName=<%=topic.getTopicName()%>'">Test</button>
 
 
     <%
